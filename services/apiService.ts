@@ -8,12 +8,10 @@ export interface CreateEvent {
 }
 
 export const createEvent = async (payload: CreateEvent) => {
-  await axios.post("http://localhost:3000/api/events/create", payload);
+  await axios.post(`/api/events/create`, payload);
 };
 
 export const getEvents = async () => {
-  const { data } = await axios.get<PersonsWithName>(
-    "http://localhost:3000/api/events/get"
-  );
+  const { data } = await axios.get<PersonsWithName>(`/api/events/get`);
   return data;
 };
