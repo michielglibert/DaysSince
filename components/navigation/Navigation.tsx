@@ -16,7 +16,7 @@ const Navigation: React.FC<Props> = () => {
       <NavigationItem
         icon={<ViewListIcon color="black" height={24} width={24} />}
         text="Events"
-        href="/"
+        href="/events/new"
       />
     </HStack>
   );

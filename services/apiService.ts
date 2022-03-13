@@ -1,13 +1,19 @@
 import axios from "axios";
-import { PersonsWithName } from "../pages/api/get";
+import { PersonsWithName } from "../pages/api/events/get";
 
-export const createPerson = async (name: string) => {
-  await axios.post("http://localhost:3000/api/create", { name });
+export interface CreateEvent {
+  name: string;
+  description: string;
+  date: Date;
+}
+
+export const createEvent = async (payload: CreateEvent) => {
+  await axios.post("http://localhost:3000/api/events/create", payload);
 };
 
-export const getPersons = async () => {
+export const getEvents = async () => {
   const { data } = await axios.get<PersonsWithName>(
-    "http://localhost:3000/api/get"
+    "http://localhost:3000/api/events/get"
   );
   return data;
 };

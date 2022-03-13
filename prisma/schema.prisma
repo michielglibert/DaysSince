@@ -10,9 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Person {
+model Event {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
 
-  name String
+  name        String
+  description String
+  date        DateTime
 }

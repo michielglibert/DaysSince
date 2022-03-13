@@ -1,4 +1,4 @@
-import { prisma } from "../../lib/prisma";
+import { prisma } from "../../../lib/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
 
 interface StatusResponse {
@@ -10,12 +10,14 @@ export const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<StatusResponse>
 ) => {
-  const { name } = req.body;
+  const { name, description, date } = req.body;
 
   try {
-    await prisma?.person.create({
+    await prisma?.event.create({
       data: {
         name,
+        description,
+        date,
       },
     });
 
